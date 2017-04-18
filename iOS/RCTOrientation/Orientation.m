@@ -114,6 +114,9 @@ RCT_EXPORT_METHOD(lockToPortrait)
   [Orientation setOrientation:UIInterfaceOrientationMaskPortrait];
   [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
     [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger: UIInterfaceOrientationPortrait] forKey:@"orientation"];
+    #if DEBUG
+      NSLog(@"Locked to Portrait Completed");
+    #endif
   }];
 
 }
